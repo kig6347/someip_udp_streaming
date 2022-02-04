@@ -4,8 +4,12 @@ from scapy.all import *
 import PackageStructure as someip
 
 #np.set_printoptions(threshold=np.inf, linewidth=np.inf)
-capture = cv2.VideoCapture(0)
 cv2.namedWindow('img',cv2.WINDOW_NORMAL)
+
+b =np.array([])
+g =np.array([])
+r =np.array([])
+
 def dul(packet):
     print('packet=',packet)
 
@@ -13,11 +17,17 @@ def dul(packet):
 
     img = np.array(list(raw(sipPacket.payload)), dtype=np.uint8)
     img = np.resize(img,(35,35))
+    if img[0][0] == 0 :
+        b = img
+    elif img[0][0] == 1 :
+        g = img
+    elif img[0][0] == 2 :
+        r = img
+        cv2.imshow('img', img)
 
-    cv2.imshow('img', img)
+    #cv2.imshow('img', img)
 
     if cv2.waitKey(1)==ord('a'):
-        capture.release()
         cv2.destroyAllWindows()
         sys.exit()
 

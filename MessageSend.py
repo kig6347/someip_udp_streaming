@@ -52,7 +52,7 @@ def MakeSOMEIPPackage():
 def MakeEthPackage():
     #package = Ether()/IP(src="192.168.137.1")/UDP(sport=1900)/MakeSOMEIPPackage()
     #package = Ether() / IP(src="192.168.0.3", dst="192.168.0.19") /TCP(sport=80,dport=20)/MakeSOMEIPPackage()
-    package = Ether(src="d0:c6:37:2f:cc:9a",dst="e0:d5:5e:e1:9f:50")/IP(src="192.168.0.10",dst="192.168.0.69")/UDP(sport=138,dport=138)/MakeSOMEIPPackage()  ##com vs com
+    package = Ether()/IP(src="192.168.0.69",dst="192.168.0.158")/UDP(sport=138,dport=5900)/MakeSOMEIPPackage()  ##com vs com
     print(package)
     #package = Ether() / IP(src="192.168.0.10", dst="192.168.0.158") / UDP(sport=138, dport=5900) / MakeSOMEIPPackage()  #com vs rpi
     return package

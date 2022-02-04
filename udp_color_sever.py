@@ -18,30 +18,6 @@ def MakeSOMEIPPackage():
 
     package.msg_type = 0x01
     package.retcode = 0x00
-    '''
-    payload = bytearray(255)
-
-    payload[0] = b'0x00'
-    payload[1] = 0x01
-    payload[2] = 0x02
-    payload[3] = 0x03
-    payload[4] = 0x04
-    payload[5] = 0x05
-    payload[6] = 0x06
-    payload[7] = 0x07
-    payload[8] = 0x08
-    payload[9] = 0x09
-    payload[10] = 0x0A
-    payload[11] = 0x0B
-    payload[12] = 0x0C
-    payload[13] = 0x0D
-    payload[14] = 0x0E
-    payload[15] = 0x0F
-    del payload[16:]
-    print('payload',payload)
-
-    package.add_payload(bytes(payload))
-    '''
 
     return package
 
@@ -68,7 +44,7 @@ while True:
 
     package10 = MakeEthPackage()
     package11 = MakeEthPackage()
-    package12=MakeEthPackage()
+    package12 = MakeEthPackage()
 
     package10.add_payload(bytes(b))
     package11.add_payload(bytes(g))
